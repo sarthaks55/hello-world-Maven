@@ -4,17 +4,19 @@
 
 pipeline {
     agent any
+    
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven 3.9.5"
-    }
+        }
+
     stages {
-        stage('Clone Code') {
+        stage('GET clone') {
             steps {
-                git 'https://github.com/sudhakarjha0042/hello-world-Maven.git'
+                git 'https://github.com/sarthaks55/hello-world-Maven.git'
             }
         }
-        stage('Build Code') {
+        stage('BUILD') {
             steps {
                 bat "mvn clean install"
             }
